@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@color/white"
+    android:elevation="1dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/letter_topic_image"
+            android:src="@drawable/topic"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"/>
+        <RelativeLayout
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/letter_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="知乎团队"/>
+            <ImageView
+                android:id="@+id/letter_name_logo"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/letter_name"
+                android:src="@drawable/item1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"/>
+            <TextView
+                android:id="@+id/letter_message"
+                android:layout_marginTop="4dp"
+                android:layout_below="@+id/letter_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/message2"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/letter_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1个月前"/>
+
+    </LinearLayout>
+
+</LinearLayout>

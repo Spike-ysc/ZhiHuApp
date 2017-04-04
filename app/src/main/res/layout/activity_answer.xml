@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yan.zhihuapp.AnswerActivity">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/blue"
+                android:text="title"/>
+            <TextView
+                android:id="@+id/question_text"
+                android:layout_below="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dp"
+                android:paddingBottom="50dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:text="有哪些明星或演员让你觉得惋惜？"
+                android:gravity="top"
+                android:textSize="20sp"/>
+
+
+            <TextView
+            android:background="@color/white"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="50dp"
+                android:layout_below="@+id/question_text"
+            android:textSize="16sp"
+            android:lineSpacingExtra="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/answertest"/>
+
+            <!--<LinearLayout-->
+                <!--android:background="@color/red"-->
+                <!--android:layout_marginRight="12dp"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:layout_marginTop="100dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="60dp">-->
+            <!---->
+
+            <!--</LinearLayout>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="120dp"
+                android:background="@color/white"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:elevation="1dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/head" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:text="九十九夏希"
+                        android:textColor="@color/black"
+                         />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textSize="13dp"
+                        android:text="查看或编辑个人主页" />
+                </LinearLayout>
+               <Button
+                   android:layout_width="80dp"
+                   android:layout_height="30sp"
+                   android:textColor="@color/white"
+                   android:background="@color/antherBlue"
+                   android:text="关注"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/answer_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_gravity="bottom"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
