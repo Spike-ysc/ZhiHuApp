@@ -76,18 +76,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/agreeColor"
-            android:text="396赞同· "/>
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="396赞同"/>
         <TextView
             android:id="@+id/list_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/agreeColor"
-            android:text="68评论· "/>
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="68评论"/>
         <TextView
             android:id="@+id/list_attention"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/agreeColor"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
             android:text="关注问题"/>
     </LinearLayout>
 </LinearLayout>

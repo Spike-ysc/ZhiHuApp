@@ -24,10 +24,11 @@ import java.util.logging.LogRecord;
  */
 public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener  {
     private static final int REFRESH_COMPLETE = 0x110;
-   // private List<ListMessage> messagesList = new ArrayList<>();
-    private List<ListMessage> messagesList = new ArrayList<>();
     private ListAdapter adapter;
     private SwipeRefreshLayout refreshLayout;
+   // private List<ListMessage> messagesList = new ArrayList<>();
+    private List<ListMessage> messagesList = new ArrayList<>();
+
     public Item1Fragment() {
         // Required empty public constructor
     }
@@ -71,8 +72,8 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
             }
         });
         refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.main_swipe);
-        refreshLayout.setColorSchemeResources(R.color.red,
-                R.color.green,R.color.blue,R.color.yellow);
+        refreshLayout.setColorSchemeResources(
+                R.color.green,R.color.blue,R.color.red,R.color.yellow);
         refreshLayout.setOnRefreshListener(this);
 
         // Inflate the layout for this fragment
@@ -90,7 +91,7 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
                 "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），\n" +
                         "则是她写浪漫爱情小说所用的笔名。"
-                , "230赞同· ","68评论· ","关注问题");
+                , "230赞同","68评论","关注问题");
 
         messagesList.add(frist);
         ListMessage second = new ListMessage(R.drawable.topic, "来自话题",
@@ -98,7 +99,7 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
                 "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），\n" +
                         "        另外又称马洛温爵士夫人，是英国侦探小说作家。玛丽·维斯马科特则是她写浪漫爱情小说所用的笔名。"
-                , "230赞同· ","68评论· ","关注问题");
+                , "230赞同","68评论","关注问题");
         messagesList.add(second);
         ListMessage third = new ListMessage(R.drawable.topic, "来自话题",
                 "为什么机器学习的框架都偏向于python",

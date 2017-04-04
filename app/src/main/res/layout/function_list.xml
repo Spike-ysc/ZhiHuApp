@@ -8,8 +8,8 @@
 <ImageView
     android:id="@+id/function_Image"
     android:src="@drawable/mytime"
-    android:layout_width="24dp"
-    android:layout_height="24dp"
+    android:layout_width="20dp"
+    android:layout_height="20dp"
     android:layout_margin="16dp"/>
     <LinearLayout
         android:layout_width="0dp"
@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             android:text="我的关注"/>
         <View
