@@ -5,9 +5,9 @@
     tools:context="com.example.yan.zhihuapp.Tab2Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.example.yan.zhihuapp.MyListView
+        android:id="@+id/my_tab2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>

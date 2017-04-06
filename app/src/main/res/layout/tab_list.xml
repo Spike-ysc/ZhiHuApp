@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:elevation="1dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/tab_img"
+            android:src="@drawable/topic"
+            android:layout_width="48dp"
+            android:layout_height="48dp"/>
+        <RelativeLayout
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tab_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="南瓜酥回答了问题"/>
+
+            <TextView
+                android:id="@+id/tab_message"
+                android:layout_marginTop="4dp"
+                android:layout_below="@+id/tab_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/message2"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="120dp"
-                android:background="@color/white"
+                android:background="@drawable/concernlayout2"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:gravity="center_vertical"
@@ -78,7 +78,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:layout_marginRight="8dp"
-                    android:layout_marginLeft="4dp">
+                    android:layout_marginLeft="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -100,9 +100,10 @@
                <Button
                    android:layout_width="80dp"
                    android:layout_height="30sp"
-                   android:textColor="@color/white"
-                   android:background="@color/antherBlue"
-                   android:text="关注"/>
+                   android:textColor="@color/blue"
+                   android:background="@drawable/concernlayout"
+                   android:text="关注"
+                   />
             </LinearLayout>
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
