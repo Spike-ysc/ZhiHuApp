@@ -1,4 +1,4 @@
-package com.example.yan.zhihuapp;
+package com.example.yan.zhihuapp.MessageAndAdapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.yan.zhihuapp.R;
 
 import java.util.List;
 

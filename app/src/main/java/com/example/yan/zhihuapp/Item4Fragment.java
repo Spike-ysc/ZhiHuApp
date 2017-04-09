@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.example.yan.zhihuapp.MessageAndAdapter.LetterAdapter;
+import com.example.yan.zhihuapp.MessageAndAdapter.LetterMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 

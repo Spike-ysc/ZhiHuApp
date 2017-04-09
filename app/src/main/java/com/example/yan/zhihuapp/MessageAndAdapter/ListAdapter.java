@@ -1,4 +1,4 @@
-package com.example.yan.zhihuapp;
+package com.example.yan.zhihuapp.MessageAndAdapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.example.yan.zhihuapp.AnswerActivity;
+import com.example.yan.zhihuapp.CommentActivity;
+import com.example.yan.zhihuapp.QuestionActivity;
+import com.example.yan.zhihuapp.R;
+import com.example.yan.zhihuapp.TopicActivity;
 
 import java.util.List;
 

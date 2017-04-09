@@ -1,19 +1,17 @@
-package com.example.yan.zhihuapp;
+package com.example.yan.zhihuapp.MessageAndAdapter;
 
 /**
- * Created by yan on 2017/4/4.
+ * Created by yan on 2017/4/6.
  */
 
-public class CommentMessage {
+public class TabMessage {
     private int imageId;
     private String name;
     private String message;
-    private String time;
-    public CommentMessage(int imageId, String name, String message, String time){
+    public TabMessage(int imageId, String name, String message){
         this.imageId = imageId;
         this.name = name;
         this.message = message;
-        this.time = time;
     }
 
     public int getImageId() {
@@ -26,9 +24,5 @@ public class CommentMessage {
 
     public String getMessage() {
         return message;
-    }
-
-    public String getTime() {
-        return time;
     }
 }

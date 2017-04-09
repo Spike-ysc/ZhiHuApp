@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.yan.zhihuapp.MessageAndAdapter.AnswerAdapter;
+import com.example.yan.zhihuapp.MessageAndAdapter.AnswerMessage;
 
 import java.util.ArrayList;
 import java.util.List;

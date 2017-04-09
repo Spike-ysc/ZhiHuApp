@@ -1,4 +1,4 @@
-package com.example.yan.zhihuapp;
+package com.example.yan.zhihuapp.MessageAndAdapter;
 
 /**
  * Created by yan on 2017/4/1.

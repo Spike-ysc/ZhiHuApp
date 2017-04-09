@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import org.w3c.dom.Comment;
+import com.example.yan.zhihuapp.MessageAndAdapter.CommentAdapter;
+import com.example.yan.zhihuapp.MessageAndAdapter.CommentMessage;
 
 import java.util.ArrayList;
 import java.util.List;

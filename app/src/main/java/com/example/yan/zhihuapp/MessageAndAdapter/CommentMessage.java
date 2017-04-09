@@ -1,20 +1,17 @@
-package com.example.yan.zhihuapp;
+package com.example.yan.zhihuapp.MessageAndAdapter;
 
 /**
- * Created by yan on 2017/3/26.
+ * Created by yan on 2017/4/4.
  */
 
-public class LetterMessage {
+public class CommentMessage {
     private int imageId;
     private String name;
-    private int logoImageId;
     private String message;
     private String time;
-
-    public LetterMessage(int imageId, String name, int logoImageId, String message, String time){
+    public CommentMessage(int imageId, String name, String message, String time){
         this.imageId = imageId;
         this.name = name;
-        this.logoImageId = logoImageId;
         this.message = message;
         this.time = time;
     }
@@ -25,10 +22,6 @@ public class LetterMessage {
 
     public String getName() {
         return name;
-    }
-
-    public int getLogoImageId() {
-        return logoImageId;
     }
 
     public String getMessage() {
