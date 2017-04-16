@@ -35,4 +35,5 @@
     <color name="answerColor">#333333</color>
     <color name="agreeColor">#969b9e</color>
     <color name="antherBlue">#44cb7e</color>
+    <color name="questionTopic">#c2dfe2</color>
 </resources>

@@ -6,36 +6,80 @@
     android:background="@color/dividerColor"
     tools:context="com.example.yan.zhihuapp.Item1Fragment">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/blue"
+        android:elevation="1dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:background="@color/lightBlue"
+                android:layout_margin="10dp"
+                android:padding="10dp">
+                <ImageView
+                    android:src="@drawable/search"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="16dp"
+                    android:text="搜索"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_marginRight="12dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/nightlight"
+                android:layout_width="22dp"
+                android:layout_height="22dp" />
+
+        </LinearLayout>
 
 
+    </android.support.design.widget.AppBarLayout>
     <!-- TODO: Update blank fragment layout -->
-<android.support.v4.widget.SwipeRefreshLayout
-    android:id="@+id/main_swipe"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
-
-
-    <com.example.yan.zhihuapp.MyListView
-        android:id="@+id/main_ltem"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/main_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/dividerColor"
-        android:dividerHeight="10dp"/>
+        android:layout_marginTop="65dp"
+        >
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+            >
+
+
+
+            <com.example.yan.zhihuapp.MyListView
+                android:id="@+id/main_ltem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/dividerColor"
+                android:dividerHeight="10dp"/>
 
 
 
 
-</android.support.v4.widget.NestedScrollView>
+        </android.support.v4.widget.NestedScrollView>
 
 
 
-</android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
 
 </FrameLayout>

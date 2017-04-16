@@ -2,6 +2,10 @@ package com.example.yan.zhihuapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -12,12 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionActivity extends AppCompatActivity {
+
     private List<AnswerMessage> messageList = new ArrayList<>();
+
+    private List<TopicMessage> messageList1 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.question_toolbar);
+        setSupportActionBar(toolbar);
 
 //        使页面打开后是最上面
         TextView myQuestion = (TextView) findViewById(R.id.myQuestion);
@@ -34,6 +43,21 @@ public class QuestionActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.question_list);
         AnswerAdapter adapter = new AnswerAdapter(QuestionActivity.this,R.layout.answer_list,messageList);
         listView.setAdapter(adapter);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.topic_recycler);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(layoutManager);
+        TopicAdapter adapter1 = new TopicAdapter(messageList1);
+        recyclerView.setAdapter(adapter1);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.question_menu,menu);
+
+        return true;
     }
 
     private void initMessage(){
@@ -69,6 +93,22 @@ public class QuestionActivity extends AppCompatActivity {
                 "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
                 "17赞","7评论","21分钟前");
         messageList.add(first7);
+        TopicMessage t1 = new TopicMessage("名言");
+        messageList1.add(t1);
+        TopicMessage t2 = new TopicMessage("阅读");
+        messageList1.add(t2);
+        TopicMessage t3 = new TopicMessage("写作");
+        messageList1.add(t3);
+        TopicMessage t4 = new TopicMessage("文学");
+        messageList1.add(t4);
+        TopicMessage t6 = new TopicMessage("钱钟书");
+        messageList1.add(t6);
+        TopicMessage t7 = new TopicMessage("围城");
+        messageList1.add(t7);
+        TopicMessage t8 = new TopicMessage("鲁迅");
+        messageList1.add(t8);
+        TopicMessage t5 = new TopicMessage("有哪些X的句子");
+        messageList1.add(t5);
     }
 
 }
