@@ -5,9 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.yan.zhihuapp.CommentActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/comment_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="?attr/colorPrimary">
+        <ImageView
+            android:id="@+id/comment_back_icon"
+            android:src="@drawable/ic_clear_black_24dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"
+            android:layout_marginLeft="32dp"
+            android:textColor="@color/white"
+            android:textSize="17sp"/>
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:gravity="right">
+
+            <ImageView
+                android:src="@drawable/ic_share_black_24dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v7.widget.Toolbar>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
 
         <com.example.yan.zhihuapp.MyListView
             android:id="@+id/comment_listView"

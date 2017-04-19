@@ -34,6 +34,7 @@ public class Item3Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_item3,container,false);
         tabLayout = (TabLayout) view.findViewById(R.id.myTablayout);
         viewPager = (ViewPager) view.findViewById(R.id.myViewPager);
+        viewPager.setOffscreenPageLimit(2);
         list = new ArrayList<>();
         list.add(new Tab1Fragment());
         list.add(new Tab2Fragment());

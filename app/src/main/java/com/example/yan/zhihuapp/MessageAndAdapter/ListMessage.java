@@ -1,10 +1,12 @@
 package com.example.yan.zhihuapp.MessageAndAdapter;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by yan on 2017/4/1.
  */
 
-public class ListMessage {
+public class ListMessage extends BmobObject {
     private int imageId;
     private String topic;
     private String question;

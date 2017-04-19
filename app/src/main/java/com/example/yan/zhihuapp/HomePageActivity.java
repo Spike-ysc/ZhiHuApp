@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TopicActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private TabFragmentAdapter adapter;
@@ -18,7 +18,7 @@ public class TopicActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topic);
+        setContentView(R.layout.activity_home_page);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.home_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -33,19 +33,5 @@ public class TopicActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
         tabLayout.setupWithViewPager(viewPager);
-
-//        tabLayout = (TabLayout) view.findViewById(R.id.myTablayout);
-//        viewPager = (ViewPager) view.findViewById(R.id.myViewPager);
-//        viewPager.setOffscreenPageLimit(2);
-//        list = new ArrayList<>();
-//        list.add(new Tab1Fragment());
-//        list.add(new Tab2Fragment());
-//        list.add(new Tab3Fragment());
-//        adapter = new TabFragmentAdapter(getChildFragmentManager(),list);
-//        viewPager.setAdapter(adapter);
-//        viewPager.setCurrentItem(0);
-//        tabLayout.setupWithViewPager(viewPager);
-
-
     }
 }

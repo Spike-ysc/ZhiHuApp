@@ -2,6 +2,9 @@ package com.example.yan.zhihuapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.yan.zhihuapp.MessageAndAdapter.CommentAdapter;
@@ -17,10 +20,21 @@ public class CommentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.comment_toolbar);
+        setSupportActionBar(toolbar);
         ListView listView = (ListView) findViewById(R.id.comment_listView);
         initMessage();
         CommentAdapter adapter = new CommentAdapter(CommentActivity.this, R.layout.comment_list, messageList);
         listView.setAdapter(adapter);
+        ImageView mBackImg = (ImageView)findViewById(R.id.comment_back_icon);
+        mBackImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 //        ListView listView = (ListView) view.findViewById(R.id.main_ltem);
 //
 //

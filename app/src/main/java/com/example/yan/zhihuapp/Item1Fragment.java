@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.yan.zhihuapp.MessageAndAdapter.ListAdapter;
 import com.example.yan.zhihuapp.MessageAndAdapter.ListMessage;
@@ -32,6 +37,11 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+    }
+
     private android.os.Handler mHandler = new android.os.Handler(){
       public void handleMessage(android.os.Message msg){
           switch (msg.what){
@@ -52,12 +62,25 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
     };
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_item1, container, false);
+        Toolbar mToolbar = (Toolbar) view.findViewById(R.id.item_toobar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
+        setHasOptionsMenu(true);
         ListView listView = (ListView) view.findViewById(R.id.main_ltem);
+
+
+        //使最上面的textview获取焦点，使界面加载时在最上边
+//        来源：http://blog.csdn.net/jiaoyaning1210/article/details/51084246
+        TextView otherText = (TextView) view.findViewById(R.id.other_text);
+        otherText.setFocusable(true);
+        otherText.setFocusableInTouchMode(true);
+        otherText.requestFocus();
 
 
         initMessage();

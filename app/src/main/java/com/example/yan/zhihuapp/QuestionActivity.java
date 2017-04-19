@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,6 +27,7 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.question_toolbar);
         setSupportActionBar(toolbar);
 
@@ -39,6 +42,13 @@ public class QuestionActivity extends AppCompatActivity {
 //        initMessage();
 //        ListAdapter adapter = new ListAdapter(getActivity(), R.layout.layout_list, messagesList);
 //        listView.setAdapter(adapter);
+        ImageView mBackImg = (ImageView) findViewById(R.id.back_icon);
+        mBackImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         initMessage();
         ListView listView = (ListView) findViewById(R.id.question_list);
         AnswerAdapter adapter = new AnswerAdapter(QuestionActivity.this,R.layout.answer_list,messageList);

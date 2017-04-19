@@ -34,6 +34,7 @@
 
          <!--个人主页   -->
             <LinearLayout
+                android:id="@+id/homePage_view"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginBottom="10dp"

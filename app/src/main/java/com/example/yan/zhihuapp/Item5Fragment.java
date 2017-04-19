@@ -1,6 +1,7 @@
 package com.example.yan.zhihuapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.CompoundButtonCompat;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -40,6 +42,14 @@ public class Item5Fragment extends Fragment implements CompoundButton.OnCheckedC
         listView.setAdapter(adapter);
         nightSwitch = (SwitchCompat) view.findViewById(R.id.night_switch);
         nightSwitch.setOnCheckedChangeListener(this);
+        LinearLayout mHomePage = (LinearLayout) view.findViewById(R.id.homePage_view);
+        mHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(getActivity(), HomePageActivity.class);
+                startActivity(mIntent);
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;

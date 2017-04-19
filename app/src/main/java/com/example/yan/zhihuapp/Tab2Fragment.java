@@ -14,6 +14,10 @@ import com.example.yan.zhihuapp.MessageAndAdapter.TabMessage;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListener;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,6 +43,13 @@ public class Tab2Fragment extends Fragment {
     }
 
     private void initMessage(){
+        BmobQuery<TabMessage> tab = new BmobQuery<>();
+        tab.getObject("d532a415a5", new QueryListener<TabMessage>() {
+            @Override
+            public void done(TabMessage tabMessage, BmobException e) {
+                messageList.add(tabMessage);
+            }
+        });
         TabMessage tb1 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
         messageList.add(tb1);
         TabMessage tb2 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
