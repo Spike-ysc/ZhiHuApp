@@ -37,4 +37,6 @@
     <color name="antherBlue">#44cb7e</color>
     <color name="questionTopic">#eef6f9</color>
     <color name="anther_text">#949c9f</color>
+    <color name="fab_color">#FAFAFA</color>
+    <color name="fab_back">#ffffff</color>
 </resources>

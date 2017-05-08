@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FloatingActionButton mFloatingActionButton;
     private CoordinatorLayout mCoor;
     private TextView hide;
+    private RelativeLayout hideRelative;
     private boolean isOpen = false;
 
     @Override
@@ -56,7 +58,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         mAppBarLayout = (AppBarLayout) findViewById(R.id.my_appbar);
         mCoor = (CoordinatorLayout) findViewById(R.id.coor);
 
+        hideRelative = (RelativeLayout) findViewById(R.id.hide_relative);
         hide = (TextView) findViewById(R.id.hide);
+
         mFloatingActionButton = (FloatingActionButton)findViewById(R.id.main_fab);
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +77,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             @Override
             public void onClick(View v) {
                 turnRight(mFloatingActionButton);
-                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
-                startActivity(intent);
             }
         });
         bar = (BottomNavigationBar) findViewById(R.id.main_bar);
@@ -107,25 +109,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 break;
             case 1:
                 switchFragment(mFragment2);
-                mAppBarLayout.setVisibility(View.GONE);
-                mFloatingActionButton.setVisibility(View.GONE);
+                hidetab();
                 // FourthFragment fragment4 = new FourthFragment();
                 // getSupportFragmentManager().beginTransaction().replace(R.id.allFrame, fragment4).commit();
                 break;
             case 2:
                 switchFragment(mFragment3);
-                mAppBarLayout.setVisibility(View.GONE);
-                mFloatingActionButton.setVisibility(View.GONE);
+                hidetab();
                 break;
             case 3:
                 switchFragment(mFragment4);
-                mAppBarLayout.setVisibility(View.GONE);
-                mFloatingActionButton.setVisibility(View.GONE);
+                hidetab();
                 break;
             case 4:
                 switchFragment(mFragment5);
-                mAppBarLayout.setVisibility(View.GONE);
-                mFloatingActionButton.setVisibility(View.GONE);
+                hidetab();
             default:
                 break;
         }
@@ -133,13 +131,29 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
     @Override
     public void onTabUnselected(int position) {
+
     }
+
 
     @Override
     public void onTabReselected(int position) {
 
     }
+    private void hidetab(){
+        if (isOpen == true){
+            turnRight(mFloatingActionButton);
+        }
+        if (mAppBarLayout.getVisibility() == View.VISIBLE){
 
+            mAppBarLayout.setVisibility(View.GONE);
+        }
+        if (mFloatingActionButton.getVisibility() == View.VISIBLE){
+
+            mFloatingActionButton.setVisibility(View.GONE);
+        }
+
+        mAppBarLayout.setVisibility(View.GONE);
+    }
     private void switchFragment(Fragment targetfragment) {
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction();
@@ -161,10 +175,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         objectAnimator.setDuration(300)
                 .setInterpolator(new AccelerateDecelerateInterpolator());
         objectAnimator.start();
+        hideRelative.setVisibility(View.VISIBLE);
         hide.setVisibility(View.VISIBLE);
-        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 0.75f);
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1f);
         alphaAnimation.setDuration(300);
         alphaAnimation.setFillAfter(true);
+        hideRelative.startAnimation(alphaAnimation);
         hide.startAnimation(alphaAnimation);
         hide.setClickable(true);
         isOpen = true;
@@ -178,10 +194,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         objectAnimator.setDuration(300);
         objectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         objectAnimator.start();
+        hideRelative.setVisibility(View.GONE);
         hide.setVisibility(View.GONE);
-        AlphaAnimation alphaAnimation = new AlphaAnimation(0.75f, 0);
+        AlphaAnimation alphaAnimation = new AlphaAnimation(1f, 0);
         alphaAnimation.setDuration(300);
         alphaAnimation.setFillAfter(true);
+        hideRelative.startAnimation(alphaAnimation);
         hide.startAnimation(alphaAnimation);
         hide.setClickable(false);
         isOpen = false;

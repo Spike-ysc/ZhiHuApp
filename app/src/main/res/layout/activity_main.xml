@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/coor"
     tools:context="com.example.yan.zhihuapp.MainActivity">
+
+    <!--顶部导航栏-->
     <android.support.design.widget.AppBarLayout
         android:id="@+id/my_appbar"
         android:layout_width="match_parent"
@@ -57,18 +59,15 @@
             android:name="com.example.yan.zhihuapp.Item1Fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    <TextView
-        android:id="@+id/hide"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:visibility="gone"/>
+
+
+    <!--悬浮按钮-->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/main_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginBottom="72dp"
+        android:layout_marginRight="24dp"
         android:src="@drawable/pen"
         android:backgroundTint="@color/blue"
         app:borderWidth="0dp"
@@ -90,5 +89,119 @@
        android:background="@color/white"
        android:layout_gravity="bottom"
        />
+
+    <RelativeLayout
+        android:id="@+id/hide_relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/hide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#BBFFFFFF"
+
+            android:visibility="visible"/>
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="312dp"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingRight="32dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/fab_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/fablayout"
+                android:elevation="1dp"
+
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="分享"
+                android:textSize="15sp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:elevation="1dp"
+                android:src="@drawable/head"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingRight="32dp"
+            android:paddingTop="8dp"
+            android:layout_below="@+id/linear1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/fablayout"
+                android:elevation="1dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="回答"
+                android:textSize="14sp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:elevation="1dp"
+                android:src="@drawable/head"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/linear2"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingRight="32dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/fablayout"
+                android:elevation="1dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="提问"
+                android:textSize="14sp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:elevation="1dp"
+                android:src="@drawable/head"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
