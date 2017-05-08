@@ -25,6 +25,13 @@
     <style name="MyToggleButton" parent="@android:style/Widget.CompoundButton">
         <item name="android:button">@drawable/checkbox_button1</item>
     </style>
+    <style name="MyToggleButton2" parent="@android:style/Widget.CompoundButton">
+        <item name="android:button">@drawable/checkbox_button2</item>
+    </style>
+    <style name="MyToggleButton3" parent="@android:style/Widget.CompoundButton">
+        <item name="android:button">@drawable/checkbox_button3</item>
+    </style>
 
 
-    </resources>
+
+</resources>

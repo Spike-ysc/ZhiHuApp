@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coor2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yan.zhihuapp.SelectActivity">
+    <TextView
+        android:id="@+id/mRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/message1">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/hide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffff"
+        android:visibility="gone" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:layout_marginRight="0dp"
+        android:src="@drawable/back"
+        app:backgroundTint="#0767C8"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/mRecycleView"
+        app:layout_anchorGravity="bottom|right|end"
+        app:layout_behavior=".ScrollAwareFABBehavior"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="#0767C8" />
+
+</android.support.constraint.ConstraintLayout>

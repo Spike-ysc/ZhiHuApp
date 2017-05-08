@@ -1,17 +1,20 @@
 package com.example.yan.zhihuapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 public class AnswerActivity extends AppCompatActivity {
     private BottomNavigationBar bar;
+    private LinearLayout commentLine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,14 @@ public class AnswerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        commentLine = (LinearLayout) findViewById(R.id.comment_line);
+        commentLine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AnswerActivity.this, CommentActivity.class);
+                startActivity(intent);
             }
         });
 

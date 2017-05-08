@@ -13,10 +13,11 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 
 /**
- * Created by yan on 2017/4/19.
+ * Created by muyang on 2016/5/11.
+ *
  */
-
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
+    //先慢后快再慢
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
     private boolean mIsAnimatingOut = false;
 
@@ -24,10 +25,11 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
         super();
     }
 
+    //初始条件
     @Override
     public boolean onStartNestedScroll(final CoordinatorLayout coordinatorLayout, final FloatingActionButton child,
                                        final View directTargetChild, final View target, final int nestedScrollAxes) {
-        // Ensure we react to vertical scrolling
+        //垂直滚动
         return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL
                 || super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, nestedScrollAxes);
     }
@@ -49,6 +51,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
     // Same animation that FloatingActionButton.Behavior uses to hide the FAB when the AppBarLayout exits
     private void animateOut(final FloatingActionButton button) {
         if (Build.VERSION.SDK_INT >= 14) {
+            //withLayer()使动画中的某些操作变得更顺畅,加速渲染,API 14以后
             ViewCompat.animate(button).translationY(button.getHeight() + getMarginBottom(button)).setInterpolator(INTERPOLATOR).withLayer()
                     .setListener(new ViewPropertyAnimatorListener() {
                         public void onAnimationStart(View view) {
@@ -61,7 +64,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 
                         public void onAnimationEnd(View view) {
                             ScrollAwareFABBehavior.this.mIsAnimatingOut = false;
-                            view.setVisibility(View.GONE);
+                            view.setVisibility(View.INVISIBLE);
                         }
                     }).start();
         } else {

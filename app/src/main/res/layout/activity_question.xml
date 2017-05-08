@@ -69,9 +69,9 @@
                     <ImageView
                         android:layout_centerVertical="true"
                         android:id="@+id/relative_eye"
-                        android:src="@drawable/mynight"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:src="@drawable/ic_visibility_black_24dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_marginRight="8dp"/>
                     <TextView
                         android:layout_centerVertical="true"
@@ -85,9 +85,9 @@
                         android:layout_centerVertical="true"
                         android:id="@+id/comment_img"
                         android:layout_toRightOf="@+id/eye_text"
-                        android:src="@drawable/mynight"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:src="@drawable/tlak"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:layout_marginRight="8dp"/>
                     <TextView
                         android:id="@+id/comment_text"
@@ -100,10 +100,11 @@
                         android:layout_alignParentRight="true"
                         android:layout_gravity="right|center_vertical"
                         android:layout_centerVertical="true"
-                        android:background="@color/antherBlue"
+                        android:background="@drawable/question_button"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:textColor="@color/white"
+                        android:textSize="14sp"
                         android:text="关注"/>
                 </RelativeLayout>
             </LinearLayout>
@@ -111,7 +112,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="1dp">
+                android:elevation="1dip">
                 <LinearLayout
 
                     android:background="@drawable/boderlinelayout"
@@ -121,13 +122,14 @@
                     android:padding="12dp"
                     android:gravity="center_horizontal|center_vertical">
                     <ImageView
-                        android:src="@drawable/mynight"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:src="@drawable/invite"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_marginRight="4dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="15sp"
                         android:text="邀请回答"/>
                 </LinearLayout>
                 <LinearLayout
@@ -138,9 +140,9 @@
                     android:background="@drawable/boderlinelayout"
                     android:gravity="center_horizontal|center_vertical">
                     <ImageView
-                        android:src="@drawable/mynight"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:src="@drawable/white"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_marginRight="4dp"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -160,12 +162,23 @@
                     android:layout_alignParentLeft="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/anther_text"
                     android:text="267个回答"/>
-                <TextView
+                <LinearLayout
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="按质量排序"/>
+                    android:gravity="center|center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/anther_text"
+                        android:text="按质量排序"/>
+                    <ImageView
+                        android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
             </RelativeLayout>
             <com.example.yan.zhihuapp.MyListView
                 android:id="@+id/question_list"

@@ -3,15 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
     android:background="@color/white"
     android:elevation="1dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/letter_topic_image"
             android:src="@drawable/topic"
@@ -28,6 +25,9 @@
                 android:id="@+id/letter_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:paddingBottom="6dp"
                 android:text="知乎团队"/>
             <ImageView
                 android:id="@+id/letter_name_logo"
@@ -38,7 +38,7 @@
                 android:layout_height="16dp"/>
             <TextView
                 android:id="@+id/letter_message"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
                 android:layout_below="@+id/letter_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,5 +53,10 @@
             android:text="1个月前"/>
 
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:background="@color/dividerColor"
+        android:gravity="bottom"/>
 </LinearLayout>

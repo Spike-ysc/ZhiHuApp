@@ -1,17 +1,25 @@
 package com.example.yan.zhihuapp;
 
+import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.example.yan.zhihuapp.MessageAndAdapter.ListMessage;
 import com.example.yan.zhihuapp.MessageAndAdapter.TabMessage;
 
 import java.util.ArrayList;
@@ -21,6 +29,8 @@ import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
+
+import static android.os.Build.VERSION_CODES.N;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
     private BottomNavigationBar bar;
@@ -32,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private Item5Fragment mFragment5 = new Item5Fragment();
     private AppBarLayout mAppBarLayout;
     private FloatingActionButton mFloatingActionButton;
+    private CoordinatorLayout mCoor;
+    private TextView hide;
+    private boolean isOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +54,31 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         Bmob.initialize(this,"513ed4499b5b55835ea7e56b1f9ae014");
 
         mAppBarLayout = (AppBarLayout) findViewById(R.id.my_appbar);
+        mCoor = (CoordinatorLayout) findViewById(R.id.coor);
+
+        hide = (TextView) findViewById(R.id.hide);
         mFloatingActionButton = (FloatingActionButton)findViewById(R.id.main_fab);
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isOpen){
+                    turnLeft(v);
+                }
+                else {
+                    turnRight(v);
+                }
+            }
+        });
+        hide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnRight(mFloatingActionButton);
+                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
+                startActivity(intent);
+            }
+        });
         bar = (BottomNavigationBar) findViewById(R.id.main_bar);
-        bar.setFab(mFloatingActionButton);
+//        bar.setFab(mFloatingActionButton);
         bar.setMode(BottomNavigationBar.MODE_FIXED)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT);
         bar.setAutoHideEnabled(true);
@@ -85,12 +120,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             case 3:
                 switchFragment(mFragment4);
                 mAppBarLayout.setVisibility(View.GONE);
+                mFloatingActionButton.setVisibility(View.GONE);
                 break;
             case 4:
                 switchFragment(mFragment5);
                 mAppBarLayout.setVisibility(View.GONE);
                 mFloatingActionButton.setVisibility(View.GONE);
-                break;
             default:
                 break;
         }
@@ -121,6 +156,36 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         }
         currentFragment = targetfragment;
     }
+    private void turnLeft(View v){
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(v,"rotation", 0, -155,-135);
+        objectAnimator.setDuration(300)
+                .setInterpolator(new AccelerateDecelerateInterpolator());
+        objectAnimator.start();
+        hide.setVisibility(View.VISIBLE);
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 0.75f);
+        alphaAnimation.setDuration(300);
+        alphaAnimation.setFillAfter(true);
+        hide.startAnimation(alphaAnimation);
+        hide.setClickable(true);
+        isOpen = true;
 
+        mFloatingActionButton.setImageResource(R.drawable.ic_clear_black_24dp);
+    }
+
+    //回到原来位置
+    public void turnRight(View v){
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(v, "rotation", -135,20, 0);
+        objectAnimator.setDuration(300);
+        objectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        objectAnimator.start();
+        hide.setVisibility(View.GONE);
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0.75f, 0);
+        alphaAnimation.setDuration(300);
+        alphaAnimation.setFillAfter(true);
+        hide.startAnimation(alphaAnimation);
+        hide.setClickable(false);
+        isOpen = false;
+        mFloatingActionButton.setImageResource(R.drawable.pen);
+    }
 
 }

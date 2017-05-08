@@ -28,12 +28,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuestionActivity" />
-
+        <activity android:name=".QuestionActivity"/>
         <activity android:name=".AnswerActivity"/>
         <activity android:name=".TopicActivity"/>
         <activity android:name=".CommentActivity"/>
         <activity android:name=".HomePageActivity">
+        </activity>
+        <activity android:name=".SelectActivity">
         </activity>
     </application>
 
