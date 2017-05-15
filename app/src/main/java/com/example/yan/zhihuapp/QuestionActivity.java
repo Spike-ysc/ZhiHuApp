@@ -1,5 +1,6 @@
 package com.example.yan.zhihuapp;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,11 +19,15 @@ import com.example.yan.zhihuapp.MessageAndAdapter.AnswerMessage;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.yan.zhihuapp.R.id.guanzhu;
+
 public class QuestionActivity extends AppCompatActivity {
 
     private List<AnswerMessage> messageList = new ArrayList<>();
 
     private List<TopicMessage> messageList1 = new ArrayList<>();
+
+    private Button guanZhu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +66,19 @@ public class QuestionActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         TopicAdapter adapter1 = new TopicAdapter(messageList1);
         recyclerView.setAdapter(adapter1);
+        guanZhu = (Button) findViewById(guanzhu);
+        guanZhu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (guanZhu.getText() == "关注"){
+                    guanZhu.setText("已关注");
+                    guanZhu.setBackgroundResource(R.drawable.question_button2);
+                }else {
+                    guanZhu.setText("关注");
+                    guanZhu.setBackgroundResource(R.drawable.question_button);
+                }
+            }
+        });
 
     }
 

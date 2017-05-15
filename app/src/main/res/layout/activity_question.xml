@@ -97,6 +97,7 @@
                         android:layout_height="wrap_content"
                         android:text="18"/>
                     <Button
+                        android:id="@+id/guanzhu"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="right|center_vertical"
                         android:layout_centerVertical="true"

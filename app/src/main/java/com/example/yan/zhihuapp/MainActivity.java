@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private TextView hide;
     private RelativeLayout hideRelative;
     private boolean isOpen = false;
+    private LinearLayout toSelect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +96,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .initialise();
         bar.setTabSelectedListener(this);
 //        bar.setFab(floating);
+
+        toSelect = (LinearLayout) findViewById(R.id.to_select_layout);
+        toSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SelectActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onTabSelected(int position) {

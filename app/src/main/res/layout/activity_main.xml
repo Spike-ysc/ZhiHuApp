@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
+                    android:id="@+id/to_select_layout"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
@@ -90,6 +91,8 @@
        android:layout_gravity="bottom"
        />
 
+
+<!--fab点击后的页面-->
     <RelativeLayout
         android:id="@+id/hide_relative"
         android:layout_width="match_parent"

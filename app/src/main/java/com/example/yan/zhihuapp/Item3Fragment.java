@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Item3Fragment extends Fragment {
     private ViewPager viewPager;
     private TabFragmentAdapter adapter;
     private List<Fragment> list;
-
+    private TextView nameText;
 
     public Item3Fragment() {
         // Required empty public constructor
@@ -43,7 +44,8 @@ public class Item3Fragment extends Fragment {
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
         tabLayout.setupWithViewPager(viewPager);
-
+        nameText =(TextView) view.findViewById(R.id.tab_name);
+//        nameText.setTextColor(nameText.getResources().getColor(R.color.red,null));
 
 
         // Inflate the layout for this fragment

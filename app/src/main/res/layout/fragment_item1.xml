@@ -6,91 +6,7 @@
     android:background="@color/dividerColor"
     tools:context="com.example.yan.zhihuapp.Item1Fragment">
 
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="top"-->
-        <!--android:background="@color/blue"-->
-        <!--android:elevation="1dp">-->
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--app:layout_scrollFlags="scroll|enterAlways">-->
-            <!--<LinearLayout-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="40dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:gravity="center_vertical"-->
-                <!--android:background="@color/lightBlue"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:padding="10dp">-->
-                <!--<ImageView-->
-                    <!--android:src="@drawable/search"-->
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="20dp" />-->
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:layout_marginLeft="16dp"-->
-                    <!--android:text="搜索"-->
-                    <!--android:textSize="16sp"/>-->
-            <!--</LinearLayout>-->
-            <!--<ImageView-->
-                <!--android:layout_marginRight="12dp"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:src="@drawable/nightlight"-->
-                <!--android:layout_width="22dp"-->
-                <!--android:layout_height="22dp" />-->
 
-        <!--</LinearLayout>-->
-
-
-    <!--</android.support.design.widget.AppBarLayout>-->
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-
-        <!--<android.support.v7.widget.Toolbar-->
-            <!--android:id="@+id/item_toobar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="?attr/actionBarSize"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--app:layout_scrollFlags="scroll|enterAlways">-->
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!--<LinearLayout-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="40dp"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:gravity="center_vertical"-->
-                    <!--android:background="@color/lightBlue"-->
-                    <!--android:layout_margin="10dp"-->
-                    <!--android:padding="10dp">-->
-                    <!--<ImageView-->
-                        <!--android:src="@drawable/search"-->
-                        <!--android:layout_width="20dp"-->
-                        <!--android:layout_height="20dp" />-->
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:textColor="@color/white"-->
-                        <!--android:layout_marginLeft="16dp"-->
-                        <!--android:text="搜索"-->
-                        <!--android:textSize="16sp"/>-->
-                <!--</LinearLayout>-->
-                <!--<ImageView-->
-                    <!--android:layout_marginRight="12dp"-->
-                    <!--android:layout_gravity="center_vertical"-->
-                    <!--android:src="@drawable/nightlight"-->
-                    <!--android:layout_width="22dp"-->
-                    <!--android:layout_height="22dp" />-->
-
-            <!--</LinearLayout>-->
-
-        <!--</android.support.v7.widget.Toolbar>-->
-    <!--</android.support.design.widget.AppBarLayout>-->
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -104,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,26 +30,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"/>
 
-                <com.example.yan.zhihuapp.MyListView
+              <com.example.yan.zhihuapp.MyListView
                     android:id="@+id/main_ltem"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:divider="@color/dividerColor"
                     android:dividerHeight="10dp"/>
             </LinearLayout>
-
-
-
-
-
-
-
         </android.support.v4.widget.NestedScrollView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
-
-
-
-
 
 </android.support.design.widget.CoordinatorLayout>

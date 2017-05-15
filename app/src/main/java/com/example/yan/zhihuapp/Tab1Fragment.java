@@ -39,35 +39,17 @@ public class Tab1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_tab1, container, false);
-        //initMessage();
+        initMessage();
         mListView= (ListView) view.findViewById(R.id.my_tab1);
         BmobQuery<TabMessage> tab = new BmobQuery<>();
-        tab.getObject("d532a415a5", new QueryListener<TabMessage>() {
-            @Override
-            public void done(TabMessage tabMessage, BmobException e) {
-                Toast.makeText(getContext(), "yes", Toast.LENGTH_SHORT)
-                        .show();
-                messageList.add(tabMessage);
-                adapter = new TabAdapter(getActivity(), R.layout.tab_list, messageList);
 
-
-                mListView.setAdapter(adapter);
-
-            }
-        });
+        adapter = new TabAdapter(getActivity(), R.layout.tab_list, messageList);
+        mListView.setAdapter(adapter);
 
         return view;
     }
 
     private void initMessage(){
-        BmobQuery<TabMessage> tab = new BmobQuery<>();
-        tab.getObject("d532a415a5", new QueryListener<TabMessage>() {
-            @Override
-            public void done(TabMessage tabMessage, BmobException e) {
-                Toast.makeText(getContext(), "yes", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        });
 
 //
         TabMessage tb1 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
@@ -78,12 +60,5 @@ public class Tab1Fragment extends Fragment {
         messageList.add(tb3);
 
     }
-//        ListMessage frist = new ListMessage(R.drawable.topic, "来自话题",
-//                "为什么机器学习的框架都偏向于python",
-//
-//                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），\n" +
-//                        "则是她写浪漫爱情小说所用的笔名。"
-//                , "230赞同· ","68评论· ","关注问题");
-//        messagesList.add(frist);
 
 }
