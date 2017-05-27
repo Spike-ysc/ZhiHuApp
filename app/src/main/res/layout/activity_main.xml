@@ -62,6 +62,16 @@
             android:layout_height="match_parent"/>
 
 
+    <!--<Button-->
+        <!--android:id="@+id/changeButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="changeTheme"/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/imageview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="invisible"/>-->
     <!--悬浮按钮-->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/main_fab"

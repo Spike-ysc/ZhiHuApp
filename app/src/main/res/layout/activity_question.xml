@@ -45,7 +45,7 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/topic_recycler"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@color/white"/>
                 <TextView
                     android:id="@+id/myQuestion"
@@ -56,6 +56,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/question1"/>
                 <TextView
+                    android:id="@+id/msg_text"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_width="match_parent"

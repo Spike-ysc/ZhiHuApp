@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">ZhiHuApp</string>
+
+    <string name="main_menu_changetheme_day">夜间模式</string>
+    <string name="main_menu_changetheme_night">日间模式</string>
+
     <string name="scale_down_show_behavior">com.example.yan.zhihuapp.behavior.MyBottomBar</string>
 
     <string name="question1">华为是靠什么卖的这么贵？</string>

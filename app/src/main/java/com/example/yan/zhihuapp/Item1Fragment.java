@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.yan.zhihuapp.MessageAndAdapter.ListAdapter;
 import com.example.yan.zhihuapp.MessageAndAdapter.ListMessage;
@@ -22,16 +23,22 @@ import com.example.yan.zhihuapp.MessageAndAdapter.ListMessage;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener  {
     private static final int REFRESH_COMPLETE = 0x110;
+    private static final int REFRESH_COMPLETE2 = 0x112;
     private ListAdapter adapter;
     private SwipeRefreshLayout refreshLayout;
    // private List<ListMessage> messagesList = new ArrayList<>();
     private List<ListMessage> messagesList = new ArrayList<>();
+    private String questionId;
 
     public Item1Fragment() {
         // Required empty public constructor
@@ -50,12 +57,34 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
                       "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），\n" +
                               "则是她写浪漫爱情小说所用的笔名。"
-                      , "230赞同· ","68评论· ","关注问题");
+                      , "230赞同· ","68评论· ","关注问题", "");
 
 //                  messagesList.addAll();
                   messagesList.add(0, addmessage);
                   adapter.notifyDataSetChanged();
                   refreshLayout.setRefreshing(false);
+
+                  break;
+
+              case REFRESH_COMPLETE2:
+                  BmobQuery<ListMessage> lMsg = new BmobQuery<>();
+                  lMsg.setLimit(5);
+                  lMsg.findObjects(new FindListener<ListMessage>() {
+                      @Override
+                      public void done(List<ListMessage> list, BmobException e) {
+                          if (e == null){
+                              for (ListMessage lm: list){
+                                  ListMessage frist = new ListMessage(lm.getImageId(),
+                                          lm.getTopic(),lm.getQuestion(), lm.getAnswer(), lm.getAgree(),
+                                          lm.getComment(), lm.getAttention(),lm.getQuestionId());
+                                  messagesList.add(frist);
+
+                              }
+                              adapter.notifyDataSetChanged();
+//                              Toast.makeText(getContext(), "item OK", Toast.LENGTH_SHORT).show();
+                          }
+                      }
+                  });
                   break;
           }
       }
@@ -85,6 +114,7 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
         initMessage();
         adapter = new ListAdapter(getActivity(), R.layout.layout_list, messagesList);
+
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -93,7 +123,7 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 startActivity(intent);
             }
         });
-        refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.main_swipe);
+        refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_1);
         refreshLayout.setColorSchemeResources(
                 R.color.green,R.color.blue,R.color.red,R.color.yellow);
         refreshLayout.setOnRefreshListener(this);
@@ -108,16 +138,18 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
     }
 
     private void initMessage(){
-        for (int i=0; i<20; i++){
+        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE2,2000);
 
-            ListMessage frist = new ListMessage(R.drawable.topic, "来自话题",
-                    "为什么机器学习的框架都偏向于python",
-
-                    "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），\n" +
-                            "则是她写浪漫爱情小说所用的笔名。"
-                    , "230赞同","68评论","关注问题");
-            messagesList.add(frist);
-        }
+//        for (int i=0; i<20; i++){
+//
+//            ListMessage frist = new ListMessage(R.drawable.topic, "来自话题",
+//                    "为什么机器学习的框架都偏向于python",
+//
+//                    "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），\n" +
+//                            "则是她写浪漫爱情小说所用的笔名。"
+//                    , "230赞同","68评论","关注问题");
+//            messagesList.add(frist);
+//        }
 
     }
 

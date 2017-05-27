@@ -7,10 +7,12 @@
     tools:context="com.example.yan.zhihuapp.Item3Fragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
 
 
@@ -24,12 +26,17 @@
             app:tabSelectedTextColor="@color/white"/>
 
         <!--这里加下拉刷新需要判断在哪个页面-->
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
             <android.support.v4.view.ViewPager
                 android:id="@+id/myViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
-
 </FrameLayout>

@@ -14,8 +14,28 @@ public class ListMessage extends BmobObject {
     private String agree;
     private String comment;
     private String attention;
+    private String questionId;
+
+    public String getAnswerId() {
+        return answerId;
+    }
+
+    public void setAnswerId(String answerId) {
+        this.answerId = answerId;
+    }
+
+    private String answerId;
+
+    public String getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
+
     public ListMessage(int imageId, String topic, String question,
-                       String answer, String agree, String comment, String attention){
+                       String answer, String agree, String comment, String attention, String questionId){
         this.imageId = imageId;
         this.topic = topic;
         this.question = question;
@@ -23,6 +43,7 @@ public class ListMessage extends BmobObject {
         this.agree = agree;
         this.comment = comment;
         this.attention = attention;
+        this.questionId = questionId;
     }
     public int getImageId(){
         return imageId;

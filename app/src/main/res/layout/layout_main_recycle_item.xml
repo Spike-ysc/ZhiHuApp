@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp"
+    android:layout_marginTop="6dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    >
+
+    <TextView
+        android:id="@+id/tv_titlt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是一行字"
+        android:textColor="?attr/textColorFirst"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是第二行字"
+        android:textColor="?attr/textColorSecond"
+        android:textSize="13sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal" android:layout_width="match_parent"
+                  android:layout_height="60dp"
+                  android:gravity="center_vertical"
+                  android:background="?attr/main_item_background"
+        >
+        <ImageView
+            android:id="@+id/function_Image1"
+            android:src="?attr/textColorSecond"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="16dp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="left|center_vertical">
+            <TextView
+                android:id="@+id/function_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:text="我的关注"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/textColorSecond"
+                android:gravity="bottom"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.yan.zhihuapp.AnswerActivity;
 import com.example.yan.zhihuapp.CommentActivity;
@@ -26,6 +27,9 @@ import java.util.List;
 public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnClickListener {
     private int resourceId;
     private Intent intent;
+    private ListMessage message;
+    private  TextView mquestion;
+    private View view;
     public ListAdapter(Context context, int textViewResourceId, List<ListMessage> objects){
         super(context,textViewResourceId,objects);
         resourceId = textViewResourceId;
@@ -34,18 +38,20 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        ListMessage message = getItem(position);
-        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
+
+        message = getItem(position);
+        view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         ImageView mtopicImage = (ImageView) view.findViewById(R.id.list_topic_image);
         TextView mtopic = (TextView) view.findViewById(R.id.list_topic);
-        final TextView mquestion = (TextView) view.findViewById(R.id.list_question);
+        mquestion = (TextView) view.findViewById(R.id.list_question);
         TextView manswer = (TextView) view.findViewById(R.id.list_answer);
         TextView magree = (TextView) view.findViewById(R.id.list_agree);
         TextView mcomment = (TextView) view.findViewById(R.id.list_comment);
-        final TextView mattention = (TextView) view.findViewById(R.id.list_attention);
+        TextView mattention = (TextView) view.findViewById(R.id.list_attention);
         mtopicImage.setImageResource(message.getImageId());
         mtopic.setText(message.getTopic());
         mquestion.setText(message.getQuestion());
+        mquestion.setTag(message.getQuestionId());
         manswer.setText(message.getAnswer());
         magree.setText(message.getAgree());
         mcomment.setText(message.getComment());
@@ -55,28 +61,35 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
         mquestion.setOnClickListener(this);
         manswer.setOnClickListener(this);
         mcomment.setOnClickListener(this);
-        mattention.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mattention.getText() == "关注问题"){
-                    mattention.setText("已关注");
-                }else {
-                    mattention.setText("关注问题");
-                }
-            }
-        });
+//        view.setTag(message.getQuestionId());
+//        mattention.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (mattention.getText() == "关注问题"){
+//                    mattention.setText("已关注");
+//                }else {
+//                    mattention.setText("关注问题");
+//                }
+//            }
+//        });
         return view;
     }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.list_question:
                 intent = new Intent(getContext(), QuestionActivity.class);
+                TextView qt =(TextView)v.findViewById(R.id.list_question);
+                intent.putExtra("To_question", qt.getText());
+                intent.putExtra("To_questionId", qt.getTag().toString());
+//                Toast.makeText(getContext(),qt.getTag().toString(), Toast.LENGTH_SHORT).show();
                 getContext().startActivity(intent);
                 break;
             case R.id.list_answer:
                 intent = new Intent(getContext(), AnswerActivity.class);
+
                 getContext().startActivity(intent);
                 break;
             case R.id.letter_topic_image:

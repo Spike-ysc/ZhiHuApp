@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".SelectActivity">
         </activity>
+        <activity android:name=".Item6Activity">
+        </activity>
     </application>
 
 </manifest>
