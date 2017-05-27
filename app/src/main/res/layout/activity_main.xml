@@ -55,6 +55,7 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
+
         <fragment
             android:id="@+id/main_fragment"
             android:name="com.example.yan.zhihuapp.Item1Fragment"

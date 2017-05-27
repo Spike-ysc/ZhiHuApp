@@ -52,12 +52,24 @@ public class Tab1Fragment extends Fragment {
     private void initMessage(){
 
 //
-        TabMessage tb1 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
+        TabMessage tb1 = new TabMessage(R.drawable.head, "Python中文社区新增了文章","透过数据看Github？");
         messageList.add(tb1);
-        TabMessage tb2 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
+        TabMessage tb2 = new TabMessage(R.drawable.head, "知识分子新增了文章","笑的科学机理？");
         messageList.add(tb2);
-        TabMessage tb3 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
+        TabMessage tb3 = new TabMessage(R.drawable.head, "知识分子新增了文章","美国科学在衰退？");
         messageList.add(tb3);
+        TabMessage tb4 = new TabMessage(R.drawable.head, "Python中文社区新增了文章","如何使用爬虫分析招聘情况？");
+        messageList.add(tb4);
+//        TabMessage tb5 = new TabMessage(R.drawable.head, "向晓回答了问题","有哪些非常漂亮的比喻？");
+//        messageList.add(tb5);
+//        TabMessage tb6 = new TabMessage(R.drawable.head, "蜗牛贱贱君回答了问题","你初中高中有什么有趣的故事？");
+//        messageList.add(tb6);
+//        TabMessage tb7 = new TabMessage(R.drawable.head, "知识分子新增了文章","2017第十八界医学奖报名截止？");
+//        messageList.add(tb7);
+//        TabMessage tb8 = new TabMessage(R.drawable.head, "知识分子新增了文章","五分钟看懂中国最新的量子计算机？");
+//        messageList.add(tb8);
+//        TabMessage tb9 = new TabMessage(R.drawable.head, "外面的世界新增了文章","仍有一份情怀？");
+//        messageList.add(tb9);
 
     }
 

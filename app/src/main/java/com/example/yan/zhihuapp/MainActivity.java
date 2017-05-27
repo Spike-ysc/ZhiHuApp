@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.example.yan.zhihuapp.MessageAndAdapter.CommentMessage;
 import com.example.yan.zhihuapp.MessageAndAdapter.ListMessage;
 import com.example.yan.zhihuapp.adapter.MyAppliction;
 import com.example.yan.zhihuapp.adapter.Theme;
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
         //bmob初始化
         Bmob.initialize(this,"513ed4499b5b55835ea7e56b1f9ae014");
-
+;
 
 //        QuestionMessage qm = new QuestionMessage();
 //        qm.setqTopic1("Android开发");

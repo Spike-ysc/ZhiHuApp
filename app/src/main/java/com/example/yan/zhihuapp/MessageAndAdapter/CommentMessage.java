@@ -1,10 +1,12 @@
 package com.example.yan.zhihuapp.MessageAndAdapter;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by yan on 2017/4/4.
  */
 
-public class CommentMessage {
+public class CommentMessage extends BmobObject {
     private int imageId;
     private String name;
     private String message;
@@ -13,6 +15,22 @@ public class CommentMessage {
         this.imageId = imageId;
         this.name = name;
         this.message = message;
+        this.time = time;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setTime(String time) {
         this.time = time;
     }
 

@@ -39,12 +39,8 @@ public class Tab3Fragment extends Fragment {
     }
 
     private void initMessage(){
-        TabMessage tb1 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
+        TabMessage tb1 = new TabMessage(R.drawable.head, "莫名其妙","大学生？");
         messageList.add(tb1);
-        TabMessage tb2 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
-        messageList.add(tb2);
-        TabMessage tb3 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
-        messageList.add(tb3);
 
     }
 }

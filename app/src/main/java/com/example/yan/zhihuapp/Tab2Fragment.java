@@ -50,11 +50,11 @@ public class Tab2Fragment extends Fragment {
                 messageList.add(tabMessage);
             }
         });
-        TabMessage tb1 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
+        TabMessage tb1 = new TabMessage(R.drawable.head, "葱葱不匆匆赞同了你的回答","你经历过的或者听过的最动人的爱情故事是什么样子的？");
         messageList.add(tb1);
-        TabMessage tb2 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
+        TabMessage tb2 = new TabMessage(R.drawable.head, "可我最爱是天然问题","为什么很多人喜欢用新垣结衣做头像？");
         messageList.add(tb2);
-        TabMessage tb3 = new TabMessage(R.drawable.head, "南瓜酥回答了问题","有哪些非常漂亮的比喻？");
+        TabMessage tb3 = new TabMessage(R.drawable.head, "喵哒咪赞了你在回答下的评论","有哪些图片和文字可以用来回应钓鱼提问？");
         messageList.add(tb3);
 
     }

@@ -51,16 +51,28 @@
                     android:id="@+id/comment_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:text="昨天20：48"/>
+                <TextView
+                    android:id="@+id/agree_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text=" "
+                    android:padding="4dp"
+                    android:layout_alignParentRight="true"/>
                 <ImageView
+                    android:layout_toLeftOf="@id/agree_num"
                     android:src="@drawable/ic_thumb_up_black_24dp"
+                    android:layout_centerVertical="true"
                     android:id="@+id/zan_img"
                     android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_height="18dp"/>
+
                 <TextView
                     android:layout_toLeftOf="@+id/zan_img"
                     android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="32dp"
                     android:text="对话列表"/>
