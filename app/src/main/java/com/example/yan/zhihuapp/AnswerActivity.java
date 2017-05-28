@@ -63,16 +63,21 @@ public class AnswerActivity extends AppCompatActivity {
                     aMsg.getObject(answerId, new QueryListener<AnswerMessage>() {
                         @Override
                         public void done(AnswerMessage answerMessage, BmobException e) {
-                            aQuestion.setText(answerMessage.getQestion());
-                            aName.setText(answerMessage.getName());
-                            aAnswer.setText(answerMessage.getAnsewer());
-                            agText.setText(""+answerMessage.getAgreeNum());
-                            mProgressBar.setVisibility(View.GONE);
+                            if(e == null){
+                                aQuestion.setText(answerMessage.getQestion());
+                                aName.setText(answerMessage.getName());
+                                aAnswer.setText(answerMessage.getAnsewer());
+                                agText.setText(""+answerMessage.getAgreeNum());
+                                mProgressBar.setVisibility(View.GONE);
 //                            aAgree.setText(""+answerMessage.getAgreeNum());
 //                            aComment.setText(""+answerMessage.getComment());
 //                            if (answerMessage.isHelp()){
 //                             check1.setImageResource(R.drawable.ic_add_black_24dp);
 //                            }
+                            }else {
+                                Toast.makeText(AnswerActivity.this,"answerActivity error",Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                     });
                     break;

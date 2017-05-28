@@ -1,6 +1,7 @@
 package com.example.yan.zhihuapp.MessageAndAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.yan.zhihuapp.AnswerActivity;
 import com.example.yan.zhihuapp.R;
 
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  * Created by yan on 2017/4/4.
  */
 
-public class AnswerAdapter extends ArrayAdapter<AnswerMessage> {
+public class AnswerAdapter extends ArrayAdapter<AnswerMessage> implements View.OnClickListener {
     private int resourceId;
 
 
@@ -30,19 +32,7 @@ public class AnswerAdapter extends ArrayAdapter<AnswerMessage> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//        LetterMessage message = getItem(position);
-//        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
-//        ImageView mImage = (ImageView) view.findViewById(R.id.letter_topic_image);
-//        TextView mName = (TextView) view.findViewById(R.id.letter_name);
-//        ImageView mLogo = (ImageView) view.findViewById(R.id.letter_name_logo);
-//        TextView mMessage = (TextView) view.findViewById(R.id.letter_message);
-//        TextView mTime = (TextView) view.findViewById(R.id.letter_time);
-//        mImage.setImageResource(message.getImageId());
-//        mName.setText(message.getName());
-//        mLogo.setImageResource(message.getLogoImageId());
-//        mMessage.setText(message.getMessage());
-//        mTime.setText(message.getTime());
-//        return view;
+
         AnswerMessage message = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         ImageView mImage = (ImageView) view.findViewById(R.id.answer_image);
@@ -54,9 +44,23 @@ public class AnswerAdapter extends ArrayAdapter<AnswerMessage> {
         mImage.setImageResource(message.getImageId());
         mName.setText(message.getName());
         mText.setText(message.getText());
+        mText.setTag(message.getAnswerId());
         mAgree.setText(message.getAgree());
         mComment.setText(message.getComment());
         mTime.setText(message.getTime());
+        mText.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.answer_text:
+                TextView mt = (TextView)v.findViewById(R.id.answer_text);
+                Intent intent = new Intent(getContext(), AnswerActivity.class);
+                intent.putExtra("to_answer", mt.getTag().toString());
+                getContext().startActivity(intent);
+                break;
+        }
     }
 }

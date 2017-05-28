@@ -5,9 +5,31 @@
     tools:context="com.example.yan.zhihuapp.Tab1Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-   <com.example.yan.zhihuapp.MyListView
-       android:id="@+id/my_tab1"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="16dp"
+            android:layout_height="56dp">
+            <TextView
+                android:text="0条未读"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_done_all_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <com.example.yan.zhihuapp.MyListView
+            android:id="@+id/my_tab1"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <include layout="@layout/no_more"/>
+    </LinearLayout>
 
 </FrameLayout>

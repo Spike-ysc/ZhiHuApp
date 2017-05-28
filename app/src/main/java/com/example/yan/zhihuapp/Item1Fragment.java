@@ -39,7 +39,7 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
     private static final int REFRESH_COMPLETE2 = 0x112;
     private ListAdapter adapter;
     private SwipeRefreshLayout refreshLayout;
-   // private List<ListMessage> messagesList = new ArrayList<>();
+    // private List<ListMessage> messagesList = new ArrayList<>();
     private List<ListMessage> messagesList = new ArrayList<>();
     private String questionId;
     private ProgressBar item1Pro;

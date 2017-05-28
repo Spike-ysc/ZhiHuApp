@@ -11,7 +11,17 @@ public class AnswerMessage {
     private String agree;
     private String comment;
     private String time;
-    public AnswerMessage(int imageId,String name, String text, String agree, String comment, String time){
+    private String answerId;
+
+    public String getAnswerId() {
+        return answerId;
+    }
+
+    public void setAnswerId(String answerId) {
+        this.answerId = answerId;
+    }
+
+    public AnswerMessage(int imageId, String name, String text, String agree, String comment, String time){
         this.imageId = imageId;
         this.name = name;
         this.text = text;

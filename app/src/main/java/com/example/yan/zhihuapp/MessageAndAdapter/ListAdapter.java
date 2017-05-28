@@ -14,10 +14,12 @@ import android.widget.Toast;
 
 import com.example.yan.zhihuapp.AnswerActivity;
 import com.example.yan.zhihuapp.CommentActivity;
+import com.example.yan.zhihuapp.Item1Fragment;
 import com.example.yan.zhihuapp.QuestionActivity;
 import com.example.yan.zhihuapp.R;
 import com.example.yan.zhihuapp.TopicActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +31,9 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
     private Intent intent;
     private ListMessage message;
     private  TextView mquestion;
+    private Item1Fragment t1 = new Item1Fragment();
     private View view;
+    private List<ListMessage> messagesList = new ArrayList<>();
     //这里一直获取不了answer的Id，先这样处理
     private String[] asId = {"zoypC44C","970e69aa25","WkNB777L","ZnlY0005","mizH666N"};
 
@@ -53,6 +57,9 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
         TextView magree = (TextView) view.findViewById(R.id.list_agree);
         TextView mcomment = (TextView) view.findViewById(R.id.list_comment);
         TextView mattention = (TextView) view.findViewById(R.id.list_attention);
+        ImageView clearImg = (ImageView) view.findViewById(R.id.clear_answer);
+        clearImg.setTag(position);
+        clearImg.setOnClickListener(this);
         mtopicImage.setImageResource(message.getImageId());
         mtopic.setText(message.getTopic());
         mquestion.setText(message.getQuestion());
@@ -114,6 +121,8 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
             case R.id.list_comment:
                 intent = new Intent(getContext(),CommentActivity.class);
                 getContext().startActivity(intent);
+                break;
+            case R.id.clear_answer:
                 break;
 
 

@@ -91,6 +91,7 @@ public class QuestionActivity extends AppCompatActivity {
                                     AnswerMessage first = new AnswerMessage(R.drawable.head,am.getName(),
                                            am.getAnswerTop(),
                                             am.getAgreeNum()+"赞",am.getComment()+"评论",am.getTime());
+                                    first.setAnswerId(am.getObjectId());
                                     messageList.add(first);
                                 }
                                 adapter.notifyDataSetChanged();

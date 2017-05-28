@@ -33,6 +33,7 @@
             android:text="来自话题：计算机"
             android:textSize="14sp"/>
         <ImageView
+            android:id="@+id/clear_answer"
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:src="@drawable/toout"
