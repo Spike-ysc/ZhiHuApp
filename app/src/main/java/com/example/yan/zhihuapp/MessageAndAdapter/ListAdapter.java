@@ -30,6 +30,9 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
     private ListMessage message;
     private  TextView mquestion;
     private View view;
+    //这里一直获取不了answer的Id，先这样处理
+    private String[] asId = {"zoypC44C","970e69aa25","WkNB777L","ZnlY0005","mizH666N"};
+
     public ListAdapter(Context context, int textViewResourceId, List<ListMessage> objects){
         super(context,textViewResourceId,objects);
         resourceId = textViewResourceId;
@@ -39,7 +42,9 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
+
         message = getItem(position);
+
         view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         ImageView mtopicImage = (ImageView) view.findViewById(R.id.list_topic_image);
         TextView mtopic = (TextView) view.findViewById(R.id.list_topic);
@@ -53,6 +58,11 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
         mquestion.setText(message.getQuestion());
         mquestion.setTag(message.getQuestionId());
         manswer.setText(message.getAnswer());
+        if (position<5){
+            manswer.setTag(asId[position]);
+        }else {
+            manswer.setTag("");
+        }
         magree.setText(message.getAgree());
         mcomment.setText(message.getComment());
         mattention.setText(message.getAttention());
@@ -89,7 +99,8 @@ public class ListAdapter extends ArrayAdapter<ListMessage> implements View.OnCli
                 break;
             case R.id.list_answer:
                 intent = new Intent(getContext(), AnswerActivity.class);
-
+                TextView at = (TextView) v.findViewById(R.id.list_answer);
+                intent.putExtra("to_answer", at.getTag().toString());
                 getContext().startActivity(intent);
                 break;
             case R.id.letter_topic_image:

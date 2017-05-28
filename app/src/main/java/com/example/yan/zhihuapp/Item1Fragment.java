@@ -1,7 +1,9 @@
 package com.example.yan.zhihuapp;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +42,9 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
    // private List<ListMessage> messagesList = new ArrayList<>();
     private List<ListMessage> messagesList = new ArrayList<>();
     private String questionId;
+    private ProgressBar item1Pro;
+    private TextView hideText;
+    private AllTag frstTag;
 
     public Item1Fragment() {
         // Required empty public constructor
@@ -81,6 +87,9 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
                               }
                               adapter.notifyDataSetChanged();
+                              item1Pro.setVisibility(View.GONE);
+                              hideText.setVisibility(View.GONE);
+
 //                              Toast.makeText(getContext(), "item OK", Toast.LENGTH_SHORT).show();
                           }
                       }
@@ -102,7 +111,8 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
         ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
         setHasOptionsMenu(true);
         ListView listView = (ListView) view.findViewById(R.id.main_ltem);
-
+        item1Pro = (ProgressBar) view.findViewById(R.id.item1_pro);
+        hideText = (TextView)view.findViewById(R.id.item1_hide);
 
         //使最上面的textview获取焦点，使界面加载时在最上边
 //        来源：http://blog.csdn.net/jiaoyaning1210/article/details/51084246
@@ -113,6 +123,7 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
 
         initMessage();
+
         adapter = new ListAdapter(getActivity(), R.layout.layout_list, messagesList);
 
         listView.setAdapter(adapter);
@@ -138,7 +149,7 @@ public class Item1Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
     }
 
     private void initMessage(){
-        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE2,2000);
+        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE2,1000);
 
 //        for (int i=0; i<20; i++){
 //

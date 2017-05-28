@@ -10,6 +10,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_1"
         android:layout_width="match_parent"
@@ -33,15 +34,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"/>
 
-                    <com.example.yan.zhihuapp.MyListView
-                        android:id="@+id/main_ltem"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:divider="@color/dividerColor"
-                        android:dividerHeight="10dp"/>
+                        <com.example.yan.zhihuapp.MyListView
+                            android:id="@+id/main_ltem"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:divider="@color/dividerColor"
+                            android:dividerHeight="10dp"/>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
-
+    <TextView
+        android:id="@+id/item1_hide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"/>
+    <ProgressBar
+        android:id="@+id/item1_pro"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        android:visibility="visible" />
+    android:indeterminateDrawable="@drawable/progress_bar_color"
 </android.support.design.widget.CoordinatorLayout>

@@ -1,6 +1,7 @@
 package com.example.yan.zhihuapp;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.example.yan.zhihuapp.MessageAndAdapter.ListAdapter;
 import com.example.yan.zhihuapp.MessageAndAdapter.ListMessage;
@@ -22,8 +24,10 @@ import java.util.List;
 public class Item2Fragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private List<ListMessage> messagesList = new ArrayList<>();
     private static final int REFRESH_COMPLETE = 0x110;
+    private static final int REFRESH_COMPLETE2 = 0x112;
     private ListAdapter adapter;
     private SwipeRefreshLayout refreshLayout;
+//    private ProgressBar mProgressBar;
 
     public Item2Fragment() {
         // Required empty public constructor
@@ -43,6 +47,9 @@ public class Item2Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
                     adapter.notifyDataSetChanged();
                     refreshLayout.setRefreshing(false);
                     break;
+//                case REFRESH_COMPLETE2:
+//                    mProgressBar.setVisibility(View.GONE);
+//                    break;
             }
         }
 
@@ -52,6 +59,8 @@ public class Item2Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_item2, container, false);
+//        mProgressBar = (ProgressBar)view.findViewById(R.id.item2_pro);
+
         initMessage();
         adapter = new ListAdapter(getActivity(), R.layout.layout_list, messagesList);
         ListView listView = (ListView) view.findViewById(R.id.two_list);
@@ -78,6 +87,8 @@ public class Item2Fragment extends Fragment implements SwipeRefreshLayout.OnRefr
                     , "230赞同· ","68评论· ","关注问题","");
             messagesList.add(frist);
         }
+
+//        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE2,2000);
 
 
     }

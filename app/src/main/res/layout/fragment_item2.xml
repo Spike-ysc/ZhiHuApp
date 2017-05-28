@@ -23,6 +23,8 @@
         android:textSize="24sp"/>
 </android.support.design.widget.AppBarLayout>
     <!-- TODO: Update blank fragment layout -->
+
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_2"
         android:layout_width="match_parent"
@@ -182,6 +184,18 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
+
     </android.support.v4.widget.SwipeRefreshLayout>
+    <!--<ProgressBar-->
+        <!--android:id="@+id/item2_pro"-->
+        <!--android:layout_marginTop="60dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--style="?android:attr/progressBarStyleLarge"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:max="100"-->
+        <!--android:progress="0"-->
+        <!--android:visibility="visible" />-->
+
 
 </FrameLayout>

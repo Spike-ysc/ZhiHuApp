@@ -84,27 +84,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
         //bmob初始化
         Bmob.initialize(this,"513ed4499b5b55835ea7e56b1f9ae014");
-;
 
-//        QuestionMessage qm = new QuestionMessage();
-//        qm.setqTopic1("Android开发");
-//        qm.setqTopic2("Android开发");
-//        qm.setqTopic3("Android开发");
-//        qm.setQuestion("Android有几种不同的键盘布局？");
-//        qm.setqSee(21);
-//        qm.setqAttention(false);
-//        qm.setgTopic(0);
-//        qm.setqMsg("iOS现在有11种不同类型的键盘，详见问题iOS有几种不同的键盘布局？ - iOS 开发中，@苏打肥 的回答，那安卓有多少种类型的键盘呢，在产品设计过程中安卓的键盘有哪些要注意的");
-//        qm.save(new SaveListener<String>() {
-//            @Override
-//            public void done(String s, BmobException e) {
-//                if (e==null){
-//                    Toast.makeText(MainActivity.this, "yes",Toast.LENGTH_SHORT).show();
-//                }else {
-//
-//                }
-//            }
-//        });
+
+
 
 
 //

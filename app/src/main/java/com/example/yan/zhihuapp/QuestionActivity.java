@@ -2,6 +2,7 @@ package com.example.yan.zhihuapp;
 
 import android.graphics.Color;
 import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,20 +28,26 @@ import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.QueryListener;
 
+import static com.example.yan.zhihuapp.R.id.cancel_action;
 import static com.example.yan.zhihuapp.R.id.guanzhu;
 
 public class QuestionActivity extends AppCompatActivity {
 
     private static final int REFRESH_COMPLETE = 0x110;
+    private static final int REFRESH_COMPLETE2 = 0x112;
     private TextView questionText;
     private TextView msgText;
     private TextView eyeText;
     private TextView commentText;
     private TopicAdapter adapter1;
     private String questionId;
-
+    private ProgressBar mProgressBar;
+    private SwipeRefreshLayout mRefreshLayout;
+    private AnswerAdapter adapter;
+    private String question;
 
     private List<AnswerMessage> messageList = new ArrayList<>();
 
@@ -67,12 +75,37 @@ public class QuestionActivity extends AppCompatActivity {
                                 TopicMessage t3 = new TopicMessage(questionMessage.getqTopic3());
                                 messageList1.add(t3);
 
+                                mProgressBar.setVisibility(View.GONE);
                                 adapter1.notifyDataSetChanged();
 
                             }
                         }
                     });
+                    BmobQuery<com.example.yan.zhihuapp.AnswerMessage> aMsg = new BmobQuery<>();
+                    aMsg.addWhereEqualTo("qestion",question);
+                    aMsg.findObjects(new FindListener<com.example.yan.zhihuapp.AnswerMessage>() {
+                        @Override
+                        public void done(List<com.example.yan.zhihuapp.AnswerMessage> list, BmobException e) {
+                            if (e == null){
+                                for (com.example.yan.zhihuapp.AnswerMessage am:list){
+                                    AnswerMessage first = new AnswerMessage(R.drawable.head,am.getName(),
+                                           am.getAnswerTop(),
+                                            am.getAgreeNum()+"赞",am.getComment()+"评论",am.getTime());
+                                    messageList.add(first);
+                                }
+                                adapter.notifyDataSetChanged();
 
+                            }
+                            else {
+                                Toast.makeText(QuestionActivity.this, "dskfjas", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                    break;
+                case REFRESH_COMPLETE2:
+
+                    mRefreshLayout.setRefreshing(false);
                     break;
             }
         }
@@ -82,9 +115,18 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-
+        mRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.question_swipe);
+        mRefreshLayout.setColorSchemeResources(
+                R.color.green,R.color.blue,R.color.red,R.color.yellow);
+        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE2,2000);
+            }
+        });
         questionText = (TextView)findViewById(R.id.myQuestion);
-        questionText.setText(getIntent().getStringExtra("To_question"));
+        question = getIntent().getStringExtra("To_question");
+        questionText.setText(question);
         questionId = getIntent().getStringExtra("To_questionId");
         Toolbar toolbar = (Toolbar) findViewById(R.id.question_toolbar);
         setSupportActionBar(toolbar);
@@ -107,9 +149,10 @@ public class QuestionActivity extends AppCompatActivity {
                 finish();
             }
         });
+        mProgressBar = (ProgressBar) findViewById(R.id.question_pro);
         initMessage();
         ListView listView = (ListView) findViewById(R.id.question_list);
-        AnswerAdapter adapter = new AnswerAdapter(QuestionActivity.this,R.layout.answer_list,messageList);
+        adapter = new AnswerAdapter(QuestionActivity.this,R.layout.answer_list,messageList);
         listView.setAdapter(adapter);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.topic_recycler);
@@ -147,55 +190,8 @@ public class QuestionActivity extends AppCompatActivity {
         eyeText = (TextView)findViewById(R.id.eye_text);
         commentText = (TextView)findViewById(R.id.comment_text);
 
-        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE,2000);
-        AnswerMessage first = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first);
-        AnswerMessage first1 = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first1);
-        AnswerMessage first2 = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first2);
-        AnswerMessage first3 = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first3);
-        AnswerMessage first4 = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first4);
-        AnswerMessage first5 = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first5);
-        AnswerMessage first6 = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first6);
-        AnswerMessage first7 = new AnswerMessage(R.drawable.head,"安卓",
-                "阿加莎·玛丽·克莱丽莎·克里斯蒂女爵士(1890年9月15日－1976年1月12日），则是她写浪漫爱情小说所用的笔名。",
-                "17赞","7评论","21分钟前");
-        messageList.add(first7);
-//        TopicMessage t1 = new TopicMessage("名言");
-//        messageList1.add(t1);
-//        TopicMessage t2 = new TopicMessage("阅读");
-//        messageList1.add(t2);
-//        TopicMessage t3 = new TopicMessage("写作");
-//        messageList1.add(t3);
-//        TopicMessage t4 = new TopicMessage("文学");
-//        messageList1.add(t4);
-//        TopicMessage t6 = new TopicMessage("钱钟书");
-//        messageList1.add(t6);
-//        TopicMessage t7 = new TopicMessage("围城");
-//        messageList1.add(t7);
-//        TopicMessage t8 = new TopicMessage("鲁迅");
-//        messageList1.add(t8);
-//        TopicMessage t5 = new TopicMessage("有哪些X的句子");
-//        messageList1.add(t5);
+        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE,1000);
+
     }
 
 }

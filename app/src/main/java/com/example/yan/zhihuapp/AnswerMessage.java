@@ -18,6 +18,24 @@ public class AnswerMessage extends BmobObject {
     private boolean collect;
     private int comment;
     private boolean attention;
+    private String answerTop;
+    private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getAnswerTop() {
+        return answerTop;
+    }
+
+    public void setAnswerTop(String answerTop) {
+        this.answerTop = answerTop;
+    }
 
     public String getQestion() {
         return qestion;

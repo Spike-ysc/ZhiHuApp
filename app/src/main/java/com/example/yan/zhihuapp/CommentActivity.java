@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.example.yan.zhihuapp.MessageAndAdapter.CommentAdapter;
 import com.example.yan.zhihuapp.MessageAndAdapter.CommentMessage;
@@ -24,6 +25,7 @@ public class CommentActivity extends AppCompatActivity {
     private List<CommentMessage> messageList = new ArrayList<>();
     private static final int REFRESH_COMPLETE = 0x110;
     private CommentAdapter adapter;
+    private ProgressBar mProgressBar;
 
     private Handler mHandler = new Handler(){
         public void handleMessage(Message msg){
@@ -40,6 +42,7 @@ public class CommentActivity extends AppCompatActivity {
                                             cm.getName(), cm.getMessage(), cm.getTime());
                                     messageList.add(comm);
                                     adapter.notifyDataSetChanged();
+                                    mProgressBar.setVisibility(View.GONE);
                                 }
                             }
                         }
@@ -52,6 +55,7 @@ public class CommentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
+        mProgressBar = (ProgressBar)findViewById(R.id.comment_pro);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.comment_toolbar);
         setSupportActionBar(toolbar);
@@ -70,7 +74,7 @@ public class CommentActivity extends AppCompatActivity {
 
     }
     private void initMessage(){
-        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE,2000);
+        mHandler.sendEmptyMessageDelayed(REFRESH_COMPLETE,1000);
 
     }
 

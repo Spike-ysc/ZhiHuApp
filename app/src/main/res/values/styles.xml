@@ -32,6 +32,11 @@
         <item name="android:button">@drawable/checkbox_button3</item>
     </style>
 
+    <!--<style name="MyProgressBar" parent="Base.Widget.AppCompat.ProgressBar">-->
+        <!--<item name="android:indeterminateTint">#1d8ae7</item>-->
+        <!--<item name="android:indeterminateTintMode">src_atop</item>-->
+    <!--</style>-->
+
 
     <!--日间主题-->
     <style name="DayTheme" parent="AppTheme">
