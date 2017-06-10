@@ -25,7 +25,6 @@ public class Item5Fragment extends Fragment implements CompoundButton.OnCheckedC
     private List<FunctionMessage> messageList = new ArrayList<>();
     private SwitchCompat nightSwitch;
 
-
     public Item5Fragment() {
         // Required empty public constructor
     }
@@ -37,6 +36,7 @@ public class Item5Fragment extends Fragment implements CompoundButton.OnCheckedC
         View view = inflater.inflate(R.layout.fragment_item5, container, false);
         initMessage();
         ListView listView = (ListView) view.findViewById(R.id.function);
+
         FunctionAdapter adapter = new FunctionAdapter(getActivity(), R.layout.function_list, messageList);
 
         listView.setAdapter(adapter);

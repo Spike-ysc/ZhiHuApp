@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -36,7 +37,8 @@
         </activity>
         <activity android:name=".SelectActivity">
         </activity>
-        <activity android:name=".Item6Activity">
+        <activity android:name=".TalkActivity">
+
         </activity>
     </application>
 

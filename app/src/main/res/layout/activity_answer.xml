@@ -267,34 +267,111 @@
         android:layout_height="56dp"
         android:background="@color/white"
         android:layout_gravity="bottom"
+
         >
         <LinearLayout
-            android:id="@+id/answer_agree_button"
-            android:layout_width="64dp"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="32dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/yes_line_layout"
-            >
-            <ImageView
-                android:id="@+id/ag_img"
-                android:src="@drawable/up_down_switch"
-                android:layout_width="18dp"
-                android:layout_height="28dp"/>
-            <TextView
-                android:textSize="14sp"
-                android:id="@+id/ag_text"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:lines="1"
-                android:text="2k"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/answer_agree_button"
+                android:layout_width="64dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/yes_line_layout"
+                >
+                <ImageView
+                    android:id="@+id/ag_img"
+                    android:src="@drawable/up_down_switch"
+                    android:layout_width="18dp"
+                    android:layout_height="28dp"/>
+                <TextView
+                    android:textSize="14sp"
+                    android:id="@+id/ag_text"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="0"/>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_flag_black_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"/>
+                <TextView
+                    android:textSize="12sp"
+                    android:text="没有帮助"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_favorite_black_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"/>
+                <TextView
+                    android:textSize="12sp"
+                    android:text="感谢"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
         </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical|center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_star_border_black_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"/>
+                <TextView
+                    android:textSize="12sp"
+                    android:text="收藏"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/to_comment"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:src="@drawable/ic_chat_bubble_outline_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="77"
+                android:id="@+id/my_answer_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        </LinearLayout>
+
     </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+
+
     <ProgressBar
         android:id="@+id/answer_pro"
         android:layout_marginTop="200dp"
@@ -330,7 +407,7 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/answer_down"
-            android:layout_weight="1"
+            android:layout_weight="1.02"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center">

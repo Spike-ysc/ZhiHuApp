@@ -96,29 +96,29 @@ public class AnswerActivity extends AppCompatActivity {
         agImg = (ImageView)findViewById(R.id.ag_img);
         agreeLinear = (LinearLayout)findViewById(R.id.answer_agree_button);
         upAndDown = (LinearLayout)findViewById(R.id.answer_up_down);
-        up = (LinearLayout)findViewById(R.id.answer_up);
-        up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                upAndDown.setVisibility(View.GONE);
-                bar.setVisibility(View.VISIBLE);
-                agreeLinear.setBackgroundResource(R.drawable.yes_line_layout2);
-                agText.setTextColor(agText.getResources().getColor(R.color.white));
-                agImg.setImageResource(R.drawable.up_down_switch1);
-
-            }
-        });
-        down = (LinearLayout)findViewById(R.id.answer_down);
-        down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                upAndDown.setVisibility(View.GONE);
-                bar.setVisibility(View.VISIBLE);
-                agreeLinear.setBackgroundResource(R.drawable.yes_line_layout2);
-                agText.setTextColor(agText.getResources().getColor(R.color.white));
-                agImg.setImageResource(R.drawable.up_down_switch2);
-            }
-        });
+//        up = (LinearLayout)findViewById(R.id.answer_up);
+//        up.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                upAndDown.setVisibility(View.GONE);
+//                bar.setVisibility(View.VISIBLE);
+//                agreeLinear.setBackgroundResource(R.drawable.yes_line_layout2);
+//                agText.setTextColor(agText.getResources().getColor(R.color.white));
+//                agImg.setImageResource(R.drawable.up_down_switch1);
+//
+//            }
+//        });
+//        down = (LinearLayout)findViewById(R.id.answer_down);
+//        down.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                upAndDown.setVisibility(View.GONE);
+//                bar.setVisibility(View.VISIBLE);
+//                agreeLinear.setBackgroundResource(R.drawable.yes_line_layout2);
+//                agText.setTextColor(agText.getResources().getColor(R.color.white));
+//                agImg.setImageResource(R.drawable.up_down_switch2);
+//            }
+//        });
         mProgressBar = (ProgressBar)findViewById(R.id.answer_pro);
         initMessage();
         ImageView mBackImg = (ImageView) findViewById(R.id.answer_back_icon);
@@ -129,13 +129,13 @@ public class AnswerActivity extends AppCompatActivity {
             }
         });
         answerId = getIntent().getStringExtra("to_answer");
-        agreeLinear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bar.setVisibility(View.INVISIBLE);
-                upAndDown.setVisibility(View.VISIBLE);
-            }
-        });
+//        agreeLinear.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                bar.setVisibility(View.INVISIBLE);
+//                upAndDown.setVisibility(View.VISIBLE);
+//            }
+//        });
 //        commentLine = (LinearLayout) findViewById(R.id.comment_line);
 //        commentLine.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -145,43 +145,52 @@ public class AnswerActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        bar = (BottomNavigationBar) findViewById(R.id.main_bar);
+
+        LinearLayout ToComment = (LinearLayout) findViewById(R.id.to_comment);
+        ToComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AnswerActivity.this, CommentActivity.class);
+                startActivity(intent);
+            }
+        });
+        bar = (BottomNavigationBar) findViewById(R.id.main_bar);
 ////        bar.setFab(mFloatingActionButton);
 //        bar.setMode(BottomNavigationBar.MODE_FIXED)
 //                .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT);
 //        bar.setAutoHideEnabled(true);
-        bar = (BottomNavigationBar) findViewById(R.id.answer_navigation);
-        bar.setMode(BottomNavigationBar.MODE_FIXED)
-                .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT);
-
-        bar.setAutoHideEnabled(true);
-        bar.addItem(new BottomNavigationItem(R.drawable.nothing,"赞").setActiveColor(R.color.blue))
-                .addItem(new BottomNavigationItem(R.drawable.ic_flag_black_24dp,"帮助").setActiveColorResource(R.color.blue))
-                .addItem(new BottomNavigationItem(R.drawable.ic_favorite_black_24dp,"感谢").setActiveColorResource(R.color.blue))
-                .addItem(new BottomNavigationItem(R.drawable.ic_star_border_black_24dp,"收藏").setActiveColorResource(R.color.blue))
-                .addItem(new BottomNavigationItem(R.drawable.ic_chat_bubble_outline_black_24dp,"24").setActiveColorResource(R.color.blue))
-                .initialise();
-        bar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(int position) {
-                switch (position){
-                    case 4:
-                        Intent intent =  new Intent(AnswerActivity.this, CommentActivity.class);
-                        startActivity(intent);
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabUnselected(int position) {
-
-            }
-
-            @Override
-            public void onTabReselected(int position) {
-
-            }
-        });
+//        bar = (BottomNavigationBar) findViewById(R.id.answer_navigation);
+//        bar.setMode(BottomNavigationBar.MODE_FIXED)
+//                .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT);
+//
+//        bar.setAutoHideEnabled(true);
+//        bar.addItem(new BottomNavigationItem(R.drawable.nothing,"赞").setActiveColor(R.color.blue))
+//                .addItem(new BottomNavigationItem(R.drawable.ic_flag_black_24dp,"帮助").setActiveColorResource(R.color.blue))
+//                .addItem(new BottomNavigationItem(R.drawable.ic_favorite_black_24dp,"感谢").setActiveColorResource(R.color.blue))
+//                .addItem(new BottomNavigationItem(R.drawable.ic_star_border_black_24dp,"收藏").setActiveColorResource(R.color.blue))
+//                .addItem(new BottomNavigationItem(R.drawable.ic_chat_bubble_outline_black_24dp,"24").setActiveColorResource(R.color.blue))
+//                .initialise();
+//        bar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(int position) {
+//                switch (position){
+//                    case 4:
+//                        Intent intent =  new Intent(AnswerActivity.this, CommentActivity.class);
+//                        startActivity(intent);
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(int position) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(int position) {
+//
+//            }
+//        });
     }
 
     @Override

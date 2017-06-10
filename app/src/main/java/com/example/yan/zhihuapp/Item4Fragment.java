@@ -1,11 +1,13 @@
 package com.example.yan.zhihuapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.yan.zhihuapp.MessageAndAdapter.LetterAdapter;
@@ -13,6 +15,9 @@ import com.example.yan.zhihuapp.MessageAndAdapter.LetterMessage;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import static com.example.yan.zhihuapp.R.layout.me;
 
 
 /**
@@ -41,6 +46,15 @@ public class Item4Fragment extends Fragment {
         LetterAdapter adapter = new LetterAdapter(getActivity(),R.layout.letter_list,messageList);
         ListView listView = (ListView) view.findViewById(R.id.letter_view);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                LetterMessage lm = messageList.get(position);
+                Intent intent = new Intent(getContext(), TalkActivity.class);
+                intent.putExtra("name", lm.getName());
+                startActivity(intent);
+            }
+        });
         return view;
     }
     private void initMessage(){
