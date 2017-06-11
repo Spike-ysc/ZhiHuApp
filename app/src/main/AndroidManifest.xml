@@ -23,11 +23,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".QuestionActivity"/>
         <activity android:name=".AnswerActivity"/>
@@ -40,6 +35,16 @@
         <activity android:name=".TalkActivity">
 
         </activity>
+        <activity android:name=".LoginActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Register"></activity>
+        <activity android:name=".ForgetPwd"></activity>
     </application>
 
 </manifest>

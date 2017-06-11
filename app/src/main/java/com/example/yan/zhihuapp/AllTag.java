@@ -15,4 +15,6 @@ public class AllTag {
     }
 
     public int fristAdd = 0;
+
+    public static boolean isLogin = false;
 }
